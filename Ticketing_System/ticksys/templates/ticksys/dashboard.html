@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Dashboard</title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container-fluid">
+
+    <h1>Profile</h1>
+    <p>Username: {{ user }}</p>
+    <p>First name: {{ user.first_name }}</p>
+    <p>Last name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <p>
+        <a class="btn btn-lg btn-primary" href="{% url 'ticksys:profile_edit' %}" role="button">Edit Profile</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'ticksys:logout' %}" role="button">Logout</a>
+    </p>
+{% if all_tickets %}
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Author</th>
+            <th>Assignee</th>
+            <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in all_tickets %}
+        <tr>
+            <td><a href="{% url 'ticksys:ticket_detail' ticket.id %}">{{ ticket.title }}</a></td>
+            <td>{{ ticket.status|yesno:"Open,Closed" }}</td>
+            <td>{{ ticket.author }}</td>
+            <td>{{ ticket.assignee }}</td>
+            <td>{{ ticket.created }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% else %}
+    <h2>Sorry, there are no tickets registered for this profile.</h2>
+{% endif %}
+
+
+        <p>
+            <a class="btn btn-lg btn-primary" href="{% url 'ticksys:create_ticket' %}" role="button">Create Ticket</a>
+        </p>
+
+    </div>
+
+
+{% endblock %}
