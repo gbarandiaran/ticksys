@@ -1,2 +1,2 @@
-# ticksys
+# TickSys
 Entrega Sophilabs - Gabriel Barandiaran
