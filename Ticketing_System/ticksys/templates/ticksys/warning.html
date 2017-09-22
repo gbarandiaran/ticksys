@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Waring</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+      <div class="jumbotron">
+        <h1>Warning!</h1>
+        <p>Please, wait until the administrator gives you permission to access the dashboard. Thank you.</p>
+      </div>
+
+    <p>
+      <a class="btn btn-lg btn-warning" href="{% url 'ticksys:logout' %}" role="button">Logout</a>
+    </p>
+
+    </div> <!-- /container -->
+{% endblock %}

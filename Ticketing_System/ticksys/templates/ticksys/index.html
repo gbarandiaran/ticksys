@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>TickSys</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+      <div class="jumbotron">
+        <h1>Welcome to TickSys</h1>
+        <p>Please, if you already have a user created log onto the system. If you a are new to the application please proceed to registration</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url 'ticksys:login' %}" role="button">Login</a>
+          <a class="btn btn-lg btn-primary" href="{% url 'ticksys:register' %}" role="button">Register</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+{% endblock %}

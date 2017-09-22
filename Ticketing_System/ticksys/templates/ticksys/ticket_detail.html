@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Ticket Detail</title>
+{% endblock %}
+
+{% block navvar %}
+    <a class="nav-item nav-link active" href="{% url 'ticksys:dashboard' %}">Dashboard<span class="sr-only">(current)</span></a>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Ticket ID: {{ ticket.id }}</h1>
+        <p>Title: {{ ticket.title }}</p>
+        <p>Body: {{ ticket.body }}</p>
+        <p>Status: {{ ticket.status|yesno:"Open,Closed" }}</p>
+        <p>Author: {{ ticket.author }}</p>
+        <p>Assignee: {{ ticket.assignee }}</p>
+        <p>Date Created: {{ ticket.created }}</p>
+
+        <p>
+            <a class="btn btn-primary" href="{% url 'ticksys:edit_ticket' ticket.id %}" role="button">Edit Ticket</a>
+        </p>
+    </div>
+{% endblock %}
